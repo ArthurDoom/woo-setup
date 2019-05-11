@@ -4,7 +4,7 @@ Some basics to adding Woocommerce support to your Wordpress theme
 ## Adding theme support for woocommerce
 To declare woocommerce support add the following code to your functions file.
 
-```
+```php
 function ew_s_s_woocommerce_setup() {
 	add_theme_support( 'woocommerce' ); //Declares support for woocommerce
 	add_theme_support( 'wc-product-gallery-zoom' ); //The zoom Gallery
@@ -16,8 +16,8 @@ add_action( 'after_setup_theme', 'ew_s_s_woocommerce_setup' );
 
 ## Adding woo font styles to your theme 
 
-```
-unction ew_s_s_woocommerce_scripts() {
+```php
+function ew_s_s_woocommerce_scripts() {
 	wp_enqueue_style( 'ewew_s_s_s-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
 
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
@@ -40,7 +40,7 @@ add_action( 'wp_enqueue_scripts', 'ew_s_s_woocommerce_scripts' );
 ## Adding the class woocommerce-active to the body
 Usefull when you have a theme that can operate without woocommerce. You can target styles based on the body class woocommerce-active 
 
-```
+```php
 function ew_s_s_woocommerce_active_body_class( $classes ) {
 	$classes[] = 'woocommerce-active';
 
@@ -51,7 +51,7 @@ add_filter( 'body_class', 'ew_s_s_woocommerce_active_body_class' );
 
 ## Replacing the default Woocommerce wrapper
 
-```
+```php
 /**
  * Remove default WooCommerce wrapper.
  */
